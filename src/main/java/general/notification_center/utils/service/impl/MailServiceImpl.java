@@ -1,4 +1,4 @@
-package general.notification_center.utils;
+package general.notification_center.utils.service.impl;
 
 import general.notification_center.utils.service.MailService;
 import org.springframework.beans.factory.annotation.Value;
