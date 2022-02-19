@@ -1,7 +1,7 @@
-package general.notification_center.entity.dao.impl;
+package general.notification_center.dao.impl;
 
 import general.notification_center.dao.base.HelloWorldBaseDao;
-import general.notification_center.entity.dao.intf.HelloWorldDao;
+import general.notification_center.dao.intf.HelloWorldDao;
 import org.springframework.stereotype.Repository;
 
 /**
