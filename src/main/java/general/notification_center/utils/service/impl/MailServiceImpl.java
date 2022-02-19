@@ -26,7 +26,8 @@ public class MailServiceImpl implements MailService {
 
     @Value("${spring.mail.username}")
     private String userName;
-    private final String nickname = "系统通知";
+    @Value(("${spring.mail.nickname}"))
+    private String nickname;
 
     @Resource
     private JavaMailSender mailSender;
@@ -70,17 +71,17 @@ public class MailServiceImpl implements MailService {
     @Override
     public void sendHtmlMail(String subject, String content, String[] toWho) {
 
-        //检验参数：邮件主题、收件人、邮件内容必须不为空才能够保证基本的逻辑执行
+        // 检验参数：邮件主题、收件人、邮件内容必须不为空才能够保证基本的逻辑执行
         if (subject == null || toWho == null || toWho.length == 0 || content == null) {
             throw new RuntimeException("模板邮件无法继续发送，因为缺少必要的参数！");
         }
-        //html
+        // html
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, DEFAULT_ENCODING);
-            //设置邮件的基本信息
+            // 设置邮件的基本信息
             handleBasicInfo(helper, subject, content, toWho);
-            //发送邮件
+            // 发送邮件
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();

@@ -40,6 +40,7 @@ public class TestDatabase {
      *
      * @param id id
      */
+    @LoginExcept
     @GetMapping("/getByIdTwo")
     public HelloWorldEntity getByIdTwo(Integer id) {
         HelloWorldQuery query = new HelloWorldQuery().where.id().eq(id).end();
@@ -61,8 +62,9 @@ public class TestDatabase {
     /**
      * 根据ID进行更新
      *
-     * @param helloWorldEntity: 用户信息
+     * @param helloWorldEntity: 更新后的信息
      */
+    @LoginExcept
     @PostMapping("/updateById")
     public HelloWorldEntity updateById(@RequestBody HelloWorldEntity helloWorldEntity) {
         boolean b = helloWorldDao.updateById(helloWorldEntity);
@@ -75,8 +77,9 @@ public class TestDatabase {
     /**
      * 新增
      *
-     * @param helloWorldEntity: 用户信息
+     * @param helloWorldEntity: 新的数据
      */
+    @LoginExcept
     @PostMapping("/insert")
     public Integer insert(@RequestBody HelloWorldEntity helloWorldEntity) {
         return helloWorldDao.save(helloWorldEntity);
