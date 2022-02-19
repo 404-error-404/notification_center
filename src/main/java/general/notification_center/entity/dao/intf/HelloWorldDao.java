@@ -1,4 +1,4 @@
-package general.notification_center.dao.intf;
+package general.notification_center.entity.dao.intf;
 
 import cn.org.atool.fluent.mybatis.base.IBaseDao;
 import general.notification_center.entity.HelloWorldEntity;

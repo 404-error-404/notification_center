@@ -32,7 +32,7 @@ public class EntityGeneratorTests {
             // 设置entity类的package值
             basePack = "general.notification_center",
             // 设置dao接口和实现的src目录, 相对于 user.dir
-            daoDir = "src/main/java",
+            daoDir = "src/main/java/entity",
             // 设置哪些表要生成Entity文件
             tables = {@Table(value = {"hello_world"})}
     )

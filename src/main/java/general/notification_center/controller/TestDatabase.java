@@ -1,6 +1,7 @@
 package general.notification_center.controller;
 
-import general.notification_center.dao.intf.HelloWorldDao;
+import general.notification_center.config.LoginExcept;
+import general.notification_center.entity.dao.intf.HelloWorldDao;
 import general.notification_center.entity.HelloWorldEntity;
 import general.notification_center.mapper.HelloWorldMapper;
 import general.notification_center.utils.HttpResult;
@@ -50,10 +51,11 @@ public class TestDatabase {
      *
      * @param id id
      */
+    @LoginExcept
     @GetMapping("/deleteById")
     public HttpResult deleteById(Integer id) {
         helloWorldDao.deleteById(id);
-        return new HttpResult(200, "success");
+        return HttpResult.ok();
     }
 
     /**
