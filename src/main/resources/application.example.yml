@@ -17,8 +17,8 @@ spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://{{换成你自己的ip}}:3306/notify_center?useUnicode=true&characterEncoding=utf-8
-        username: ****
-        password: ****
+        username: xxxx
+        password: xxxx
 
 sys_params:
     jwt_secret_key: 随便输一个字符串，越复杂加密的token就越安全
