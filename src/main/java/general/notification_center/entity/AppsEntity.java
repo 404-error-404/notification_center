@@ -8,7 +8,7 @@ import cn.org.atool.fluent.mybatis.base.RichEntity;
 import cn.org.atool.fluent.mybatis.functions.TableSupplier;
 import java.io.Serializable;
 import java.lang.Class;
-import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * HelloWorldEntity: 数据映射实体定义
+ * AppsEntity: 数据映射实体定义
  *
  * @author Powered By Fluent Mybatis
  */
@@ -30,41 +30,49 @@ import lombok.experimental.Accessors;
     callSuper = false
 )
 @FluentMybatis(
-    table = "hello_world"
+    table = "apps"
 )
-public class HelloWorldEntity extends RichEntity {
+public class AppsEntity extends RichEntity {
   private static final long serialVersionUID = 1L;
 
   /**
+   * 主键，对应app的id
    */
   @TableId(
-      value = "id",
+      value = "app_id",
       auto = false
   )
-  private Integer id;
+  private Long appId;
 
   /**
+   * app名字
    */
-  @TableField("content")
-  private String content;
+  @TableField("app_name")
+  private String appName;
+
+  /**
+   * app token验证使用
+   */
+  @TableField("app_token")
+  private String appToken;
 
   @Override
   public Serializable findPk() {
-    return this.id;
+    return this.appId;
   }
 
   @Override
   public final Class<? extends IEntity> entityClass() {
-    return HelloWorldEntity.class;
+    return AppsEntity.class;
   }
 
   @Override
-  public final HelloWorldEntity changeTableBelongTo(TableSupplier supplier) {
+  public final AppsEntity changeTableBelongTo(TableSupplier supplier) {
     return super.changeTableBelongTo(supplier);
   }
 
   @Override
-  public final HelloWorldEntity changeTableBelongTo(String table) {
+  public final AppsEntity changeTableBelongTo(String table) {
     return super.changeTableBelongTo(table);
   }
 }

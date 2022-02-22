@@ -1,1 +1,24 @@
+server:
+    port: 8001
+spring:
+    mail:
+        host: 对应邮件服务的smtp服务器地址
+        username: 发件人邮箱账号
+        nickname: 发件人昵称
+        password: 发件人邮箱密码
+        default-encoding: UTF-8
+        port: 465   # 一般smtp服务器端口为465
+        properties:
+            mail:
+                smtp:
+                    ssl:
+                        enable: true
+        test-connection: true
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://{{换成你自己的ip}}:3306/notify_center?useUnicode=true&characterEncoding=utf-8
+        username: xxxx
+        password: xxxx
 
+sys_params:
+    jwt_secret_key: 随便输一个字符串，越复杂加密的token就越安全
